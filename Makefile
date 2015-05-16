@@ -155,7 +155,7 @@ clean:
 
 .PHONY: dcadec.pc
 dcadec.pc: dcadec.pc.in
-	sed 's,%PREFIX%,$(PREFIX),;s,%LIBDIR%,$(LIBDIR),;s,%INCLUDEDIR%,$(INCLUDEDIR),;s,%VERSION%,$(VERSION),' $< > $@
+	sed 's,@prefix@,$(PREFIX),;s,@libdir@,$(LIBDIR),;s,@includedir@,$(INCLUDEDIR),;s,@PACKAGE_VERSION@,$(VERSION),;s,@LIBS_PRIVATE@,$(LIBS),' $< > $@
 
 install-lib: $(OUT_LIB) dcadec.pc
 	install -d -m 755 $(DESTDIR)$(LIBDIR) $(DESTDIR)$(PKG_CONFIG_PATH) $(DESTDIR)$(INCLUDEDIR)/libdcadec
